@@ -15,6 +15,10 @@ body {
   min-height: 100vh;
 }
 
+body.dark-mode {
+  background-color: hsla(240, 5%, 7%, 1);
+}
+
 main {
   display: flex;
   justify-content: center;
@@ -33,6 +37,24 @@ main .timer .time {
   font-size: 12.61rem;
   line-height: 14.8rem;
   color: var(--base-font-color)
+}
+
+/*.play-and-pause {
+  max-height: 4.8rem;
+  max-width: 4.8rem;
+}*/
+
+.controls button {
+  min-height: 4.8rem;
+  min-width: 4.8rem;
+}
+
+.time.dark-mode span{
+  color: hsla(0, 0%, 100%, 1)
+}
+
+.controls.dark-mode svg path {
+  fill:hsla(240, 7%, 78%, 1);
 }
 
 button {
@@ -70,6 +92,10 @@ button {
   fill: #02799D;
 }
 
+.controls.dark-mode button:hover svg path {
+  fill: hsla(195, 74%, 15%, 1);
+}
+
 .sounds {
   display: grid;
   gap: 3.2rem;
@@ -84,32 +110,102 @@ button {
   height: 15.2rem;
 
   border-radius: 2.4rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3.2rem;
 }
+
+.sounds input[type="range"] {
+  -webkit-appearance: none;
+  width: 9rem;
+  height: 0.4rem;
+  background:hsla(240, 6%, 21%, 1);
+  border-radius: 5px;
+}
+
+.sounds input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 1.6rem;
+  width: 1.6rem;
+  border-radius: 50%;
+  background: hsla(240, 6%, 21%, 1);
+  cursor:grab;
+}
+
+.sounds.dark-mode input[type="range"], .sounds button:hover  input[type="range"]{
+  background: hsla(0, 0%, 100%, 1);
+}
+
+.sounds.dark-mode input[type="range"]::-webkit-slider-thumb, .sounds button:hover input[type="range"]::-webkit-slider-thumb {
+  background: hsla(0, 0%, 100%, 1);
+}
+
+
+
+.sounds.dark-mode button {
+  background: hsla(240, 6%, 17%, 1);
+}
+
 
 .sounds .rain-sound svg path {
   fill: #323238;
+}
+
+.sounds.dark-mode svg path, .sounds.dark-mode .rain-sound svg path {
+  fill: hsla(240, 7%, 78%, 1);
 }
 
 .sounds button:hover {
   background: #02799D;
 }
 
+.sounds.dark-mode button:hover {
+  background: hsla(195, 74%, 15%, 1);
+}
+
 .sounds button:hover svg path {
   fill: white;
 }
 
-svg.light-mode {
+.sounds.dark-mode button:hover svg path {
+  fill: hsla(0, 0%, 100%, 1);
+}
+
+/*svg.light-mode, svg.dark-mode {
   position: absolute;
   right: 6rem;
   top: 6rem;
+}*/
+.div-light-dark-mode-button {
+  position: absolute;
+  right: 6rem;
+  top: 6rem;
+
+  cursor: pointer;
+}
+
+.div-light-dark-mode-button:hover .light-mode path {
+  fill: #02799D;
+}
+
+.div-light-dark-mode-button:hover .dark-mode path {
+  fill: hsla(195, 74%, 15%, 1);
 }
 
 @media (max-width: 1150px) {
   main {
     gap: 10rem;
   }
-  svg.light-mode {
+  /*svg.light-mode, svg.dark-mode {
     position:static;
+  }*/
+  .div-light-dark-mode-button{
+    position:initial;
+    min-width: 4.5rem;
+    min-height: 4.5rem;
   }
 }
 

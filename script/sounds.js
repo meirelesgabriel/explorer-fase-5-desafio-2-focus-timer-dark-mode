@@ -4,6 +4,16 @@ export default function() {
   const coffeShopSound = new Audio('./sounds/Cafeteria.wav')
   const firePlaceSound = new Audio('./sounds/Lareira.wav')
 
+  forestSound.loop = true
+  rainSound.loop = true
+  coffeShopSound.loop = true
+  firePlaceSound.loop = true
+
+  forestSound.volume = 0.5
+  rainSound.volume = 0.5
+  coffeShopSound.volume = 0.5
+  firePlaceSound.volume = 0.5
+
   /*function pressForestButton() {
     forestSound.play()
   }

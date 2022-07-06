@@ -7,6 +7,15 @@ const forestSoundButton = document.querySelector('.forest-sound')
 const rainSoundButton = document.querySelector('.rain-sound')
 const cafeSoundButton = document.querySelector('.cafe-sound')
 const firePlaceSoundButton = document.querySelector('.fireplace-sound')
+
+const lightModeButton = document.querySelector('.light-mode-button')
+const darkModeButton = document.querySelector('.dark-mode-button')
+
+const bodyPage = document.body
+const time = document.querySelector('.time')
+const controlButtons = document.querySelector('.controls')
+const soundButtons = document.querySelector('.sounds')
+
 const minutesDisplay = document.querySelector('.minutes')
 const secondsDisplay = document.querySelector('.seconds')
 
@@ -20,6 +29,12 @@ export const elements = {
   rainSoundButton,
   cafeSoundButton,
   firePlaceSoundButton,
+  lightModeButton,
+  darkModeButton,
+  bodyPage,
+  time,
+  controlButtons,
+  soundButtons,
   minutesDisplay,
   secondsDisplay
 }

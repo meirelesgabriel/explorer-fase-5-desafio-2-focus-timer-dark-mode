@@ -13,6 +13,12 @@ const {
   rainSoundButton,
   cafeSoundButton,
   firePlaceSoundButton,
+  lightModeButton,
+  darkModeButton,
+  bodyPage,
+  time,
+  controlButtons,
+  soundButtons,
   minutesDisplay,
   secondsDisplay
 } = elements
@@ -46,36 +52,23 @@ pauseButton.addEventListener('click', function () {
   resetControls(playButton, pauseButton)
   // reset timer:
   timer.reset()
-  //clearTimeout(timerTimeOut)
 })
 
 stopButton.addEventListener('click', function () {
   // reset controls:
   resetControls(playButton, pauseButton)
-  //playButton.classList.remove('hide')
-  //pauseButton.classList.add('hide')
   // reset timer:
   timer.reset()
-  //clearTimeout(timerTimeOut)
-  //console.log(timerTimeOut)
   // set timer:
   timer.updateDisplay(minutes, seconds)
-  //minutesDisplay.textContent = String(minutes).padStart(2, '0')
-  //secondsDisplay.textContent = '00'
 })
 
 turnUpButton.addEventListener('click', function () {
   // set timer
   timer.updateDisplay(Number(minutesDisplay.textContent) + 5, secondsDisplay.textContent)
-  //console.log('oi')
 })
 
 turnDownButton.addEventListener('click', function () {
-  /*playButton.classList.remove('hide')
-  pauseButton.classList.add('hide')
-  clearTimeout(timerTimeOut)
-  minutesDisplay.textContent = String(minutes).padStart(2, '0')
-  secondsDisplay.textContent = '00'*/
   // set timer:
   timer.updateDisplay(Number(minutesDisplay.textContent) - 5, secondsDisplay.textContent)
 
@@ -84,19 +77,25 @@ turnDownButton.addEventListener('click', function () {
   }
 })
 
-let retornoFuncao = forestSoundButton.addEventListener('click', function() {
+forestSoundButton.addEventListener('click', function() {
   console.log('entrou no botão da floresta')
   if(sound.forestSound.paused) {
     sound.forestSound.play()
+    sound.rainSound.pause()
+    sound.coffeShopSound.pause()
+    sound.firePlaceSound.pause()
   } else {
     sound.forestSound.pause()
   }
 })
-console.log(retornoFuncao)
+
 rainSoundButton.addEventListener('click', function() {
   console.log('entrou no botão da chuva')
   if(sound.rainSound.paused) {
     sound.rainSound.play()
+    sound.forestSound.pause()
+    sound.coffeShopSound.pause()
+    sound.firePlaceSound.pause()
   } else {
     sound.rainSound.pause()
   }
@@ -106,6 +105,9 @@ cafeSoundButton.addEventListener('click', function() {
   console.log('entrou no botão da cafeteria')
   if(sound.coffeShopSound.paused) {
     sound.coffeShopSound.play()
+    sound.forestSound.pause()
+    sound.rainSound.pause()
+    sound.firePlaceSound.pause()
   } else {
     sound.coffeShopSound.pause()
   }
@@ -115,7 +117,28 @@ firePlaceSoundButton.addEventListener('click', function() {
   console.log('entrou no botão da lareira')
   if(sound.firePlaceSound.paused) {
     sound.firePlaceSound.play()
+    sound.forestSound.pause()
+    sound.rainSound.pause()
+    sound.coffeShopSound.pause()
   } else {
     sound.firePlaceSound.pause()
   }
+})
+
+lightModeButton.addEventListener('click', function() {
+  lightModeButton.classList.add('hide')
+  darkModeButton.classList.remove('hide')
+  bodyPage.classList.add('dark-mode')
+  time.classList.add('dark-mode')
+  controlButtons.classList.add('dark-mode')
+  soundButtons.classList.add('dark-mode')
+})
+
+darkModeButton.addEventListener('click', function() {
+  lightModeButton.classList.remove('hide')
+  darkModeButton.classList.add('hide')
+  bodyPage.classList.remove('dark-mode')
+  time.classList.remove('dark-mode')
+  controlButtons.classList.remove('dark-mode')
+  soundButtons.classList.remove('dark-mode')
 })
