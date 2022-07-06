@@ -1,0 +1,7 @@
+problemas:
+dar play varias vezes antes de começar faz com quem o temporizador inicie assim que a gente configure um tempo (clicando no +)
+dar play várias vezes aumenta a velocidade do temporizador
+RESOLVIDO
+
+outros: 
+numero dos minutos nao muda nunca
