@@ -82,8 +82,9 @@ turnDownButton.addEventListener('click', function () {
   }
 })
 
+
+
 forestSoundButton.addEventListener('click', function() {
-  console.log('entrou no botão da floresta')
   if(sound.forestSound.paused) {
     sound.forestSound.play()
     sound.rainSound.pause()
@@ -92,11 +93,44 @@ forestSoundButton.addEventListener('click', function() {
   } else {
     sound.forestSound.pause()
   }
+
+  forestVolumeControl.addEventListener("input", function() {
+    sound.forestSound.volume = (forestVolumeControl.value / 100);
+    console.log(sound.forestSound.volume)
+  });
+  /*console.log('entrou no botão da floresta')
+
+  if(sound.forestSound.paused) {
+    sound.forestSound.play()
+    sound.rainSound.pause()
+    sound.coffeShopSound.pause()
+    sound.firePlaceSound.pause()
+  } else {
+    sound.forestSound.pause()
+  }*/
 })
+
+
+/*forestVolumeControl.addEventListener("input", function() {
+  sound.forestSound.play()
+  sound.forestSound.volume = (forestVolumeControl.value / 100);
+});
+
+forestVolumeControl.addEventListener('mouseup', function() {
+  if(sound.forestSound.paused) {
+    sound.forestSound.play()
+    sound.rainSound.pause()
+    sound.coffeShopSound.pause()
+    sound.firePlaceSound.pause()
+  }
+})*/
 
 rainSoundButton.addEventListener('click', function() {
   console.log('entrou no botão da chuva')
   if(sound.rainSound.paused) {
+    rainVolumeControl.addEventListener("input", function() {
+      sound.rainSound.volume = rainVolumeControl.value / 100;
+    });
     sound.rainSound.play()
     sound.forestSound.pause()
     sound.coffeShopSound.pause()
@@ -107,8 +141,10 @@ rainSoundButton.addEventListener('click', function() {
 })
 
 cafeSoundButton.addEventListener('click', function() {
-  console.log('entrou no botão da cafeteria')
   if(sound.coffeShopSound.paused) {
+    cafeVolumeControl.addEventListener("input", function() {
+      sound.coffeShopSound.volume = cafeVolumeControl.value / 100;
+    });
     sound.coffeShopSound.play()
     sound.forestSound.pause()
     sound.rainSound.pause()
@@ -121,6 +157,9 @@ cafeSoundButton.addEventListener('click', function() {
 firePlaceSoundButton.addEventListener('click', function() {
   console.log('entrou no botão da lareira')
   if(sound.firePlaceSound.paused) {
+    firePlaceVolumeControl.addEventListener("input", function() {
+      sound.firePlaceSound.volume = firePlaceVolumeControl.value / 100;
+    });
     sound.firePlaceSound.play()
     sound.forestSound.pause()
     sound.rainSound.pause()
@@ -128,8 +167,6 @@ firePlaceSoundButton.addEventListener('click', function() {
   } else {
     sound.firePlaceSound.pause()
   }
-  console.log(sound.forestSound.volume)
-  console.log(forestVolumeControl.value)
 })
 
 lightModeButton.addEventListener('click', function() {
@@ -149,18 +186,3 @@ darkModeButton.addEventListener('click', function() {
   controlButtons.classList.remove('dark-mode')
   soundButtons.classList.remove('dark-mode')
 })
-
-forestVolumeControl.addEventListener("input", function() {
-  console.log('sound.forestSound.volume: ', sound.forestSound.volume)
-  console.log(('forestVolumeControl.value: fdfds', forestVolumeControl.value) / 100)
-  sound.forestSound.volume = (forestVolumeControl.value / 100);
-});
-rainVolumeControl.addEventListener("input", function() {
-  sound.rainSound.volume = rainVolumeControl.value / 100;
-});
-cafeVolumeControl.addEventListener("input", function() {
-  sound.coffeShopSound.volume = cafeVolumeControl.value / 100;
-});
-firePlaceVolumeControl.addEventListener("input", function() {
-  sound.firePlaceSound.volume = firePlaceVolumeControl.value / 100;
-});
