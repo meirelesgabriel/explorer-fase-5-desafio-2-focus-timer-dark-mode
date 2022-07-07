@@ -16,6 +16,12 @@ const time = document.querySelector('.time')
 const controlButtons = document.querySelector('.controls')
 const soundButtons = document.querySelector('.sounds')
 
+const forestVolumeControl = document.getElementById("volume-control-forest-sound");
+const rainVolumeControl = document.getElementById("volume-control-rain-sound");
+const cafeVolumeControl = document.getElementById("volume-control-cafe-sound");
+const firePlaceVolumeControl = document.getElementById("volume-control-fireplace-sound");
+
+
 const minutesDisplay = document.querySelector('.minutes')
 const secondsDisplay = document.querySelector('.seconds')
 
@@ -35,6 +41,10 @@ export const elements = {
   time,
   controlButtons,
   soundButtons,
+  forestVolumeControl,
+  rainVolumeControl,
+  cafeVolumeControl,
+  firePlaceVolumeControl,
   minutesDisplay,
   secondsDisplay
 }

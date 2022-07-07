@@ -19,6 +19,10 @@ const {
   time,
   controlButtons,
   soundButtons,
+  forestVolumeControl,
+  rainVolumeControl,
+  cafeVolumeControl,
+  firePlaceVolumeControl,
   minutesDisplay,
   secondsDisplay
 } = elements
@@ -35,6 +39,7 @@ const timer = Timer({
 })
 
 const sound = Sound()
+
 
 playButton.addEventListener('click', function() {
   if(minutesDisplay.textContent == '00' & secondsDisplay.textContent == '00') {
@@ -123,6 +128,8 @@ firePlaceSoundButton.addEventListener('click', function() {
   } else {
     sound.firePlaceSound.pause()
   }
+  console.log(sound.forestSound.volume)
+  console.log(forestVolumeControl.value)
 })
 
 lightModeButton.addEventListener('click', function() {
@@ -142,3 +149,18 @@ darkModeButton.addEventListener('click', function() {
   controlButtons.classList.remove('dark-mode')
   soundButtons.classList.remove('dark-mode')
 })
+
+forestVolumeControl.addEventListener("input", function() {
+  console.log('sound.forestSound.volume: ', sound.forestSound.volume)
+  console.log(('forestVolumeControl.value: fdfds', forestVolumeControl.value) / 100)
+  sound.forestSound.volume = (forestVolumeControl.value / 100);
+});
+rainVolumeControl.addEventListener("input", function() {
+  sound.rainSound.volume = rainVolumeControl.value / 100;
+});
+cafeVolumeControl.addEventListener("input", function() {
+  sound.coffeShopSound.volume = cafeVolumeControl.value / 100;
+});
+firePlaceVolumeControl.addEventListener("input", function() {
+  sound.firePlaceSound.volume = firePlaceVolumeControl.value / 100;
+});
